@@ -60,11 +60,23 @@ void buscarPorTitulo(Pelicula peliculas[], int cantidad, const char* consulta) {
 }
 
 void ordenarPorReproducciones(Pelicula peliculas[], int cantidad) {
-//TODO implementar ordenamiento
+    for (int i = 0; i < cantidad - 1; ++i) {
+        for (int j = 0; j < cantidad - i - 1; ++j) {
+            if (peliculas[j].reproducciones < peliculas[j + 1].reproducciones) {
+                std::swap(peliculas[j], peliculas[j + 1]);
+            }
+        }
+    }
 }
 
 void ordenarPorTitulo(Pelicula peliculas[], int cantidad) {
-    //TODO implementar ordenamiento
+    for (int i = 0; i < cantidad - 1; ++i) {
+        for (int j = 0; j < cantidad - i - 1; ++j) {
+            if (strcmp(peliculas[j].titulo, peliculas[j + 1].titulo) > 0) {
+                std::swap(peliculas[j], peliculas[j + 1]);
+            }
+        }
+    }
 }
 
 void mostrarPeliculas(Pelicula peliculas[], int cantidad) {
